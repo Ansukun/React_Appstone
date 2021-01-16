@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/React_Appstone/static/css/main.b8fd8ed6.chunk.css",
+    "main.js": "/React_Appstone/static/js/main.115f513b.chunk.js",
+    "main.js.map": "/React_Appstone/static/js/main.115f513b.chunk.js.map",
+    "runtime-main.js": "/React_Appstone/static/js/runtime-main.fdfbab1a.js",
+    "runtime-main.js.map": "/React_Appstone/static/js/runtime-main.fdfbab1a.js.map",
+    "static/js/2.6501fc95.chunk.js": "/React_Appstone/static/js/2.6501fc95.chunk.js",
+    "static/js/2.6501fc95.chunk.js.map": "/React_Appstone/static/js/2.6501fc95.chunk.js.map",
+    "static/js/3.73e80bc4.chunk.js": "/React_Appstone/static/js/3.73e80bc4.chunk.js",
+    "static/js/3.73e80bc4.chunk.js.map": "/React_Appstone/static/js/3.73e80bc4.chunk.js.map",
+    "index.html": "/React_Appstone/index.html",
+    "static/css/main.b8fd8ed6.chunk.css.map": "/React_Appstone/static/css/main.b8fd8ed6.chunk.css.map",
+    "static/js/2.6501fc95.chunk.js.LICENSE.txt": "/React_Appstone/static/js/2.6501fc95.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fdfbab1a.js",
+    "static/js/2.6501fc95.chunk.js",
+    "static/css/main.b8fd8ed6.chunk.css",
+    "static/js/main.115f513b.chunk.js"
+  ]
+}
