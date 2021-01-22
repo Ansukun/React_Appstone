@@ -34,7 +34,8 @@
     z-index: 3;
     transition: all 1s ease-in-out;
     border-image: linear-gradient(#360154, #d442d5) 30;
-    
+    color: rgb(247, 247, 247);
+    font-family: 'Righteous', cursive;
 }
 
 .sub-button{

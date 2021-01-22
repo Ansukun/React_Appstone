@@ -4,15 +4,19 @@ import reportWebVitals from './reportWebVitals';
 import Calculator2 from "./comp/class2/calculator2"
 import UserInput from "./comp/class1/userinput.js"
 import Mapper from "./comp/class3/mapper.js"
+import Lifecycle from "./comp/class4/lifecle"
+import Input2 from "./comp/class4/input2"
 
 ReactDOM.render(
   <React.StrictMode>
 {/*     
     <Calculator/> */}
     {/* <UserInput/> */}
- <UserInput/>   
+ <UserInput/>  
 <Calculator2/>
 <Mapper/>
+<Lifecycle/>
+<Input2/>
     
   </React.StrictMode>,
   document.getElementById('root')
