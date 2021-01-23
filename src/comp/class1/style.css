@@ -1,4 +1,27 @@
 
+.Main-div{
+
+    border-style: double;
+    border-color: chartreuse;
+    width: 800px;
+    height: 500px;
+     align-content: center;
+     text-align: center;
+    padding-left: 10px;
+    margin: auto;
+    box-shadow: darkgoldenrod;
+    background: #a78ac2;
+    box-shadow: 0px 0px 16px #c80de0;
+    border-radius: 2px;
+    z-index: 3;
+    border: 2px solid;
+    transition: all 1s ease-in-out;
+    border-image: linear-gradient(#461661, #d442d5) 30;
+    margin-top: 180px;
+
+}
+
+
 .main-div{
     border-style: double;
     border-color: chartreuse;
@@ -48,7 +71,7 @@
 }
 .add-button{
     
-    color :rgb(2, 10, 19);
+    color :rgb(253, 253, 253);
     border-radius: 30px;
     margin-right: 50px;
     font-weight: bold;
@@ -89,11 +112,6 @@
     margin-top: 40px;
     margin-bottom: 10px;
    
-}
-input{
-    background-color: rgb(141, 127, 155);
-    border-radius: 30px;
-    
 }
 
 border{
@@ -142,7 +160,6 @@ placeholder{
 
 }
 
-body{
-
-    background-color: rgb(230, 219, 243);
+.main{
+    justify-content: center;
 }
