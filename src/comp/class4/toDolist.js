@@ -1,107 +1,107 @@
 import React from "react";
-// import "../styles/styles2.css";
-import Button  from  "@material-ui/core/Button"
-import Grid from "@material-ui/core/Grid"
+import { Button, Grid, TextField } from "@material-ui/core";
+import "./todolist.css"
 export default class Todolist extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      job: "",
-      task: [
-        {
-          job: " Ansumun ",
-        },
-      ],
-      task2: [
-        {
-          job1: " Ansumun ",
-        },
-      ],
+      task: ["Clean dishes"],
+      task1: [],
       item: "",
     };
   }
-
-  handleInput1 = (e) => {
+  handleChange = (e) => {
     this.setState({
-      job: e.target.value,
+      item: e.target.value,
     });
   };
-
-  handlePush = () => {
-    var temp = this.state.task;
-    temp.push({
-      job: this.state.job,
-    });
-    this.setState({
-      task: temp,
-    });
-  };
-
   handleDelete = (e, index) => {
     var temp = this.state.task;
     var ele = temp.splice(index, 1);
-    console.log(ele[0].job);
-    var temp2 = this.state.task2;
-    temp2.push({
-      job1: ele[0].job,
-    });
+    console.log(ele[0]);
+    var temp2 = this.state.task1;
+    temp2.push(ele[0]);
     this.setState({
       task2: temp2,
-    });
-
-    this.setState({
       task: temp,
     });
   };
-
+  handlePush = () => {
+    var temp = this.state.task;
+    temp.push(this.state.item);
+    this.setState({
+      task: temp,
+      item: "",
+    });
+  };
   render() {
     return (
-      <Grid
-  container
-  direction="row"
-  justify="center"
-  alignItems="center"
->
-        {this.state.task.map((single, index) => {
-          return (
-            <div >
-              {single.job}{" "}
-              <Button
-                
-                onClick={(e) => {
-                  this.handleDelete(e, index);
-                }}
-              >
-                -
-              </Button>
-            </div>
-          );
-        })}
-        <div>
-          {this.state.item}
-          <div >
-            <input
-              placeholder="Enter The name"
-              
-              value={this.state.name}
-              onChange={this.handleInput1}
-            />
-            <Button
-              
-              disabled={this.state.job === "" ? true : false}
-              onClick={this.handlePush}
-            >
-              ADD
-            </Button>
-          </div>
-        </div>
-        <div>
-          {this.state.task2.map((single, index) => {
-            return <div >{single.job1} </div>;
-          })}
-        </div>
-       
-      </Grid>
+      <div>
+        <Grid classname = "input" container direction="row" justify="center" alignItems="center">
+          <TextField
+            id="standard-basic"
+            label="Enter the task to be done"
+            onChange={this.handleChange}
+          />
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={this.handlePush}
+            style={{
+                margin: 20,
+                justifyContent: "center"
+            }}
+            
+            
+          >
+            Add
+          </Button>
+        </Grid>
+
+        <Grid
+          container
+          direction="row"
+          justify="space-evenly"
+          alignItems="center"
+        >
+            <Grid>
+            {this.state.task.length === 0 ?
+                    <h2> Completed</h2> :
+                    <h2>Tasks</h2>}
+                <div className = "completed">
+                    <ul >
+                        {this.state.task.map((single, index) => {
+                            return (
+                                <li>
+                                    {single}<br/><Button color="primary" variant="contained" size="small" onClick={(e) => {
+                                        this.handleDelete(e, index, single)
+                                    }}>Completed</Button>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+            </Grid>
+
+                <Grid>
+                {this.state.task1.length === 0 ?
+                    <h2> Completed</h2> :
+                    <h2> task</h2>}
+                <div className = "completed">
+                    <ul >
+                        {this.state.task1.map((single, index) => {
+                            return (
+                                <li>
+                                  <strike>{single}<br/></strike>  
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+                </Grid>
+
+        </Grid>
+      </div>
     );
   }
 }
