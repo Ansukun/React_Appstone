@@ -1,13 +1,14 @@
 import React from 'react';
 import { Button,TextField } from "@material-ui/core";
+import { red } from '@material-ui/core/colors';
 export default class Todolist extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            tasksArr: [ "Create a react App"],
+            tasksArr: [],
             taskInput: "",
-            tasksCompleted: ["Done with deployement of the reatc  app"]
+            tasksCompleted: []
 
         }
     }
@@ -16,7 +17,7 @@ export default class Todolist extends React.Component {
             taskInput: e.target.value
         })
     }
-    pushTask = () => {
+    handlePush = () => {
         var temp = this.state.tasksArr;
         temp.push(this.state.taskInput)
         this.setState({
@@ -67,16 +68,20 @@ export default class Todolist extends React.Component {
               marginLeft : 400 ,
               height:400,
               width : 400,
+              color: 'black',
+              fontFamily : "monotype"
+
+              
               
               
            
           }} >
       
-                <h1>To Do lists</h1>
+                <h1>To do list </h1>
                 <TextField
             id="standard-basic"
             label="Task"
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <Button
             variant="contained"
@@ -102,11 +107,7 @@ export default class Todolist extends React.Component {
                     width: 200,
                     justifyContent: "center",
                     alignItems: "center",
-                    display: 'flexbox',
-                    color: 'blueviolet',
-                    fontfamily:  "cursive",
-
-
+                    display: 'flexbox'
                 }}>
                     <ul style={{
                         padding: 20,
