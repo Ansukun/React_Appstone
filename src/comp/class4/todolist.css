@@ -1,15 +1,13 @@
 
-.completed{
+div{
 
-    background-color: #c04444;
-    padding:  20px;
-    border-color: brown;
-    border-radius: 20px;
-    width :400px;
-    height: 200px;
-    justify-content: center;
-    align-content: center;
-    display: flex;
+    background-Color: "#f2f2f2";
+                    padding: 20;
+                    border-Radius: 10;
+                    width: 200;
+                    justify-content: "center";
+                    align-items: "center";
+                    display: 'flexbox'
     
 }
 
@@ -31,4 +29,11 @@ ul{
                       
 }
 
+h1{
+    text-align: center;
+}
 
+
+.input{
+    justify-content: center;
+}
