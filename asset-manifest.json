@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/React_Appstone/static/css/main.4ab5a70f.chunk.css",
-    "main.js": "/React_Appstone/static/js/main.133056a1.chunk.js",
-    "main.js.map": "/React_Appstone/static/js/main.133056a1.chunk.js.map",
+    "main.js": "/React_Appstone/static/js/main.4619ce23.chunk.js",
+    "main.js.map": "/React_Appstone/static/js/main.4619ce23.chunk.js.map",
     "runtime-main.js": "/React_Appstone/static/js/runtime-main.b53a81fc.js",
     "runtime-main.js.map": "/React_Appstone/static/js/runtime-main.b53a81fc.js.map",
     "static/js/2.1ae3dce8.chunk.js": "/React_Appstone/static/js/2.1ae3dce8.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b53a81fc.js",
     "static/js/2.1ae3dce8.chunk.js",
     "static/css/main.4ab5a70f.chunk.css",
-    "static/js/main.133056a1.chunk.js"
+    "static/js/main.4619ce23.chunk.js"
   ]
 }
