@@ -8,46 +8,46 @@ export default class Todolist extends React.Component {
         super(props);
 
         this.state = {
-            tasksArr: [],
-            taskInput: "",
-            tasksCompleted: []
+            Arr: [],
+            Input: "",
+            Completed: []
 
         }
     }
     handleInput = (e) => {
         this.setState({
-            taskInput: e.target.value
+            Input: e.target.value
         })
     }
     handlePush = () => {
-        var temp = this.state.tasksArr;
-        temp.push(this.state.taskInput)
+        var temp = this.state.Arr;
+        temp.push(this.state.Input)
         this.setState({
-            tasksArr: temp,
-            taskInput: "",
+            Arr: temp,
+            Input: "",
         })
     }
     handleComplete = (e, index) => {
-        var temp = this.state.tasksArr;
+        var temp = this.state.Arr;
         var ele = temp.splice(index, 1);
-        var temp2 = this.state.tasksCompleted;
+        var temp2 = this.state.Completed;
         temp2.push(ele[0])
         console.log(ele[0]);
         this.setState({
-            tasksArr: temp,
-            tasksCompleted: temp2
+            Arr: temp,
+            Completed: temp2
         })
     }
 
     handleUndo = (e, index) => {
-        var temp = this.state.tasksCompleted;
+        var temp = this.state.Completed;
         var ele = temp.splice(index, 1);
-        var temp2 = this.state.tasksArr;
+        var temp2 = this.state.Arr;
         temp2.push(ele[0])
         console.log(ele[0]);
         this.setState({
-            tasksArr: temp2,
-            tasksCompleted: temp
+            Arr: temp2,
+            Completed: temp
         })
     }
 
@@ -62,14 +62,14 @@ export default class Todolist extends React.Component {
             label="Task"
             placeholder = "Enter the Task"
             onChange={this.handleInput}
-            value={this.state.taskInput}
+            value={this.state.Input}
           />
           <Button
             variant="contained"
             color="secondary"
             onClick={this.handlePush}
-            value = {this.state.taskInput}
-            disabled = {this.state.taskInput? false:true}>
+            value = {this.state.Input}
+            disabled = {this.state.Input? false:true}>
             Add
           </Button>
           </div> 
@@ -79,13 +79,13 @@ export default class Todolist extends React.Component {
           
                 <Card className = "moreinfo">
                 <div className = "index">
-                {this.state.tasksArr.length === 0 ?
+                {this.state.Arr.length === 0 ?
                     <h2>You have No tasks to do</h2> :
                     <h2>Tasks to do</h2>}
                 </div>
                 
                     <ul>
-                        {this.state.tasksArr.map((single, index) => {
+                        {this.state.Arr.map((single, index) => {
                             return (
                                 <li>
                                     {single}< Button color="primary" variant="contained" onClick={(e) => {
@@ -100,13 +100,13 @@ export default class Todolist extends React.Component {
                 
                 <Card className = "completed" >
                     <div className = "index">
-                    {this.state.tasksCompleted.length === 0 ?
+                    {this.state.Completed.length === 0 ?
                     <h2>No Task Completed</h2> :
                     <h2>Tasks Completed</h2>}
                     </div>
                 
                     <ul >
-                        {this.state.tasksCompleted.map((single, index) => {
+                        {this.state.Completed.map((single, index) => {
                             return (
                                 <li>
                                     {single}< Button color="primary" variant="contained" onClick={(e) => {
