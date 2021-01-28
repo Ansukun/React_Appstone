@@ -88,7 +88,7 @@ export default class Todolist extends React.Component {
                         {this.state.tasksArr.map((single, index) => {
                             return (
                                 <li>
-                                    {single}<br />< Button color="primary" variant="contained" onClick={(e) => {
+                                    {single}< Button color="primary" variant="contained" onClick={(e) => {
                                         this.handleComplete(e, index)
                                     }}>Done</Button>
                                 </li>
@@ -109,7 +109,7 @@ export default class Todolist extends React.Component {
                         {this.state.tasksCompleted.map((single, index) => {
                             return (
                                 <li>
-                                    {single}<br />< Button color="primary" variant="contained" onClick={(e) => {
+                                    {single}< Button color="primary" variant="contained" onClick={(e) => {
                                         this.handleUndo(e, index)
                                     }}>Undo</Button>
                                 </li>
