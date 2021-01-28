@@ -1,97 +1,66 @@
-import React from 'react';
+import React  from 'react';
+import "./style2.css"
 export default class Mapper extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            arr: [
-                {
-                    name: " Akash sir ",
-                    codes: "React JS"
-                },
 
-                {
-                    name: "Girish sir",
-                    codes: "Node JS"
-                },
-                {
-                    name: "Sunny sir",
-                    codes: "Angular JS"
-                }
-            ]
-        }
-    }
+  constructor(props){
+      super(props);
+      this.state = {
+          items: [{text:'todo1', id: '33445'}],
+          noteText : '',
+      };
+ 
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    handleInput1 = (e) => {
-        this.setState({
-            name: e.target.value,
+  handleChange(e){
+    this.setState({noteText: e.target.value})
+  }
 
-        })
-    }
+  handleSubmit(e){
+      e.preventDefault();
+      if(!this.state.noteText.length){
+        return;
+      }
 
-    handleInput2 = (e) => {
-        this.setState({
-            codes: e.target.value,
-        })
-    }
+      const newItem ={
+        text: this.state.noteText,
+        id: Date.now()
+      };
 
-    handleAdd = () => {
-        var temp = this.state.arr;
-        temp.push({
-            name: this.state.name,
-            codes: this.state.codes
-        })
-        this.setState({
-            arr: temp,
-            name: "",
-            codes: ""
-        })
-
-    }
-
-   
-
-    handleDelete = (e, index) => {
-        var temp=this.state.arr
-        temp.splice(index,1)
-        this.setState({
-            arr:temp
-        })
-
-    }
+      this.setState(prevState => ({
+          items: prevState.items.concat(newItem),
+          noteText: ''
+      }));
+  }
 
 
 
-    render() {
-        return (
-            <div className = "main-div">
-               <span style = {{fontSize :30}} > Mapper List</span>
-                {this.state.arr.map((single, index) => {
-                    return (
-                        <div className = "res">
-                            {single.name} -- {single.codes}   <button className = "delete"  onClick={(e) => {
-                                        this.handleDelete(e, index)
-                                    }}>Delete</button>
-                                
-                        </div>
-                    )
-                })}
-                 <div>
-                     <div className = "button">
-                     <input   value={this.state.name} onChange={this.handleInput1} />
-                <input  className = "mapper-input"  value={this.state.Domain} onChange={this.handleInput2} />
 
-                <button className = "add-button" disabled={this.state.name === ""?true:false} onClick={this.handleAdd}>
-                    ADD
-                </button>
-                     </div>
-               
-                 </div>
-               
-                
+  render() {
+     
+
+    return (
+      <div className="App">
+         
+          <div className="container" >
+              <div className="header">React Todo Application</div>
+              
+            <form >
+              <input type="text"
+                     placeholder="What needs to be done? ..."
+                     ref={((input) => {this.textInput = input})}
+                     className="textInput"
+                     value={this.state.noteText}
+                     onChange={this.handleChange}
+              />
+               <div  className="btn" onClick={this.handleSubmit}> + </div>
+            </form>
+          </div>
+          
+      </div>
+    );
+  }
 
 
-
-            </div>
-        )
-    }
 }

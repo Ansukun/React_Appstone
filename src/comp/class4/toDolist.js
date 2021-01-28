@@ -1,6 +1,8 @@
 import React from 'react';
-import { Button,TextField } from "@material-ui/core";
-import { red } from '@material-ui/core/colors';
+import { Button,TextField, Card,DeleteIcon } from "@material-ui/core";
+import Icon from '@material-ui/core/Icon';
+import { green } from '@material-ui/core/colors';
+import "./todolist.css"
 export default class Todolist extends React.Component {
     constructor(props) {
         super(props);
@@ -22,7 +24,7 @@ export default class Todolist extends React.Component {
         temp.push(this.state.taskInput)
         this.setState({
             tasksArr: temp,
-            taskInput: ""
+            taskInput: "",
         })
     }
     handleComplete = (e, index) => {
@@ -49,115 +51,74 @@ export default class Todolist extends React.Component {
         })
     }
 
-    handleEnter = (e) => {
-        var code = e.keyCode || e.which;
-        if (code === 13) {
-            this.pushTask()
-
-        }
-
-    }
-
 
     render() {
         return (
-            <div style={{
-              padding: 50,
-              borderRadius: 10,
-              justifyContent: "center",
-              marginLeft : 400 ,
-              height:400,
-              width : 400,
-              color: 'black',
-              fontFamily : "monotype"
-
-              
-              
-              
-           
-          }} >
-      
+            <div  >
+                <div className = "input">
                 <h1>To do list </h1>
-                <TextField
+            <TextField
             id="standard-basic"
             label="Task"
+            placeholder = "Enter the Task"
             onChange={this.handleInput}
+            value={this.state.taskInput}
           />
           <Button
             variant="contained"
             color="secondary"
             onClick={this.handlePush}
-            style={{
-                margin: 20,
-                justifyContent: "center"
-            }}
-            
-            
-          >
+            value = {this.state.taskInput}
+            disabled = {this.state.taskInput? false:true}>
             Add
           </Button>
-
+          </div> 
+         
+          
+          <div className = "main">
+          
+                <Card className = "moreinfo">
+                <div className = "index">
                 {this.state.tasksArr.length === 0 ?
                     <h2>You have No tasks to do</h2> :
                     <h2>Tasks to do</h2>}
-                <div style={{
-                    backgroundColor: "#f2f2f2",
-                    padding: 20,
-                    borderRadius: 10,
-                    width: 200,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: 'flexbox'
-                }}>
-                    <ul style={{
-                        padding: 20,
-                        borderRadius: 10,
-                        justifyContent: "center",
-                        alignItems: "center",
-                        display: 'flexbox'
-                    }}>
+                </div>
+                
+                    <ul>
                         {this.state.tasksArr.map((single, index) => {
                             return (
                                 <li>
-                                    {single}<br /><Button color="primary" variant="contained" onClick={(e) => {
-                                        this.handleComplete(e, index, single)
-                                    }}>Completed</Button>
+                                    {single}<br />< Button color="primary" variant="contained" onClick={(e) => {
+                                        this.handleComplete(e, index)
+                                    }}>Done</Button>
                                 </li>
                             )
                         })}
                     </ul>
-                </div>
+                </Card>
 
-                {this.state.tasksCompleted.length === 0 ?
-                    <h2>Please Complete The Task With Due Time</h2> :
+                
+                <Card className = "completed" >
+                    <div className = "index">
+                    {this.state.tasksCompleted.length === 0 ?
+                    <h2>No Task Completed</h2> :
                     <h2>Tasks Completed</h2>}
-                <div style={{
-                    backgroundColor: "#f2f2f2",
-                    padding: 20,
-                    borderRadius: 10,
-                    width: 200,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: 'flexbox'
-                }}>
-                    <ul style={{
-                        padding: 20,
-                        borderRadius: 10,
-                        justifyContent: "center",
-                        alignItems: "center",
-                        display: 'flexbox'
-                    }}>
+                    </div>
+                
+                    <ul >
                         {this.state.tasksCompleted.map((single, index) => {
                             return (
                                 <li>
-                                    {single}<br /><Button color="primary" variant="contained" onClick={(e) => {
+                                    {single}<br />< Button color="primary" variant="contained" onClick={(e) => {
                                         this.handleUndo(e, index)
                                     }}>Undo</Button>
                                 </li>
                             )
                         })}
                     </ul>
-                </div>
+                </Card>
+          </div>
+                
 
 
             </div>
