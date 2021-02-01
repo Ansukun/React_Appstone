@@ -6,10 +6,11 @@ import UserInput from "./comp/class1/userinput.js"
 import Lifecycle from "./comp/class4/lifecle"
 import Input2 from "./comp/class4/input2"
 import Todolist from "./comp/class4/toDolist.js"
+import ColorChange from "./comp/class5/colorChange"
 
 ReactDOM.render(
   <React.StrictMode>
-      <Todolist/>
+      <ColorChange/>
   </React.StrictMode>,
   document.getElementById('root')
 );
