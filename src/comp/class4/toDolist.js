@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button,TextField, Card,DeleteIcon } from "@material-ui/core";
-import Icon from '@material-ui/core/Icon';
-import { green } from '@material-ui/core/colors';
+import { Button,TextField, Card,Grid } from "@material-ui/core";
+import IconButton from '@material-ui/core/Icon';
+
 import "./todolist.css"
 export default class Todolist extends React.Component {
     constructor(props) {
@@ -54,25 +54,34 @@ export default class Todolist extends React.Component {
 
     render() {
         return (
-            <div  >
-                <div className = "input">
-                <h1>To do list </h1>
-            <TextField
-            id="standard-basic"
-            label="Task"
-            placeholder = "Enter the Task"
-            onChange={this.handleInput}
-            value={this.state.Input}
-          />
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={this.handlePush}
-            value = {this.state.Input}
-            disabled = {this.state.Input? false:true}>
-            Add
-          </Button>
-          </div> 
+            <div className = "main_index"  >
+                 
+                <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                  >
+                   
+              <TextField
+                 id="standard-basic"
+                 label="Task"
+                 placeholder = "Enter the Task"
+                 onChange={this.handleInput}
+                 value={this.state.Input}
+                />
+              <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={this.handlePush}
+                  value = {this.state.Input} 
+                  disabled = {this.state.Input? false:true}>
+                      
+                  Add
+              </Button>
+
+            
+          </Grid> 
          
           
           <div className = "main">
@@ -88,7 +97,7 @@ export default class Todolist extends React.Component {
                         {this.state.Arr.map((single, index) => {
                             return (
                                 <li>
-                                    {single}< Button color="primary" variant="contained" onClick={(e) => {
+                                    {single}  < Button color="primary" variant="contained" onClick={(e) => {
                                         this.handleComplete(e, index)
                                     }}>Done</Button>
                                 </li>
@@ -109,7 +118,7 @@ export default class Todolist extends React.Component {
                         {this.state.Completed.map((single, index) => {
                             return (
                                 <li>
-                                    {single}< Button color="primary" variant="contained" onClick={(e) => {
+                                    {single}  < Button color="primary" variant="contained" onClick={(e) => {
                                         this.handleUndo(e, index)
                                     }}>Undo</Button>
                                 </li>

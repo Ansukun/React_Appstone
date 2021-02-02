@@ -10,7 +10,7 @@ import ColorChange from "./comp/class5/colorChange"
 
 ReactDOM.render(
   <React.StrictMode>
-      <ColorChange/>
+      <Todolist/>
   </React.StrictMode>,
   document.getElementById('root')
 );
