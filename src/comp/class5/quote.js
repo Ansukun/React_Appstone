@@ -6,12 +6,12 @@ export default class Fetcher extends React.Component {
         super(props);
 
         this.state = {
-            arr: [ "Your body is precious. It is our vehicle for awakening. Treat it with care."],
+           
             proxyUrl: 'https://whispering-tor-04671.herokuapp.com/',
             apiUrl: 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json',
-            fact: '',
+            thought: "Your body is precious. It is our vehicle for awakening. Treat it with care.",
             author: '',
-            dark: false
+            
 
         }
     }
@@ -24,7 +24,7 @@ export default class Fetcher extends React.Component {
                                     console.log(data);
                                     console.log(data.quoteText)
                                     this.setState({
-                                        fact: '"' + data.quoteText + '"',
+                                        thought: '"' + data.quoteText + '"',
                                         author: data.quoteAuthor
 
                 })
@@ -47,7 +47,7 @@ export default class Fetcher extends React.Component {
                    <Card>
                       <div className = "thought">
                       <Typography variant="h3" gutterBottom>
-                  {this.state.fact}<br/>
+                  {this.state.thought}<br/>
                   </Typography>
 
                       </div>
