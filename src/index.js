@@ -7,10 +7,12 @@ import Lifecycle from "./comp/class4/lifecle"
 import Input2 from "./comp/class4/input2"
 import Todolist from "./comp/class4/toDolist.js"
 import ColorChange from "./comp/class5/colorChange"
+import Quote from "./comp/class5/quote"
 
 ReactDOM.render(
   <React.StrictMode>
-      <Todolist/>
+      <Quote/>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
