@@ -50,6 +50,9 @@ handleClick = () => {
                   snackbarmessage: "Logged in Succesfully",
                         login: true,
                         snackbaropen: true,
+                        email: '',
+                        password: ''
+
                
               })
           }
@@ -59,6 +62,9 @@ handleClick = () => {
                   snackbarmessage: "Login Failed",
                         login: true,
                         snackbaropen: true,
+                        email: '',
+                        password: ''
+
               })
           }
       })
@@ -74,6 +80,14 @@ handleClick = () => {
             password : e.target.value
         })
        }      
+
+       handleclc = () =>{
+           this.setState({
+
+            email : "",
+            password : "",
+           })
+       }
        
     
    
@@ -110,9 +124,11 @@ handleClick = () => {
                  fullWidth
                  id="outlined-basic"
                  variant="outlined"
+                 value = {this.state.email}
                  style = {{
                     marginTop :20}}
-                 onChange = {this.handleEmail}/>
+                 onChange = {this.handleEmail}
+                    />
              </Grid>
              <Grid item>
              <TextField
@@ -120,15 +136,18 @@ handleClick = () => {
           id="filled-required"
           label="Password"
           variant="outlined"
+          value = {this.state.password}
           style = {{
             marginTop :10}}
           onChange = {this.handlePassword}
+          
           fullWidth
         />
              </Grid>
              <Grid item>
                  <Button
                  onClick = {this.handleLogin}
+                
                  fullWidth
                  disabled={this.state.password.length === 0 || this.state.email.length === 0 ? true : false}
                  variant = "contained"
