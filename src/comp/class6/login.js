@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./login.css";
-import { Grid,Button,IconButton,CloseIcon,Avatar,Dialog,DialogContent,TextField,Card, CardContent ,Snackbar, SnackbarContent,Typography,AssignmentIcon} from "@material-ui/core";
+import {IconButton,CloseIcon,LockIcon,LockOpenIcon} from "@material-ui/icons" 
+import { Grid,Button,Avatar,Dialog,DialogContent,TextField,Card, CardContent ,Snackbar, SnackbarContent,Typography,AssignmentIcon} from "@material-ui/core";
 export default class Login extends Component {
 
 constructor(props){
@@ -82,7 +83,7 @@ handleClick = () => {
             <Grid Container
             style = {{
                 justifyContent : "center",
-                marginTop : 200,
+                marginTop : 100,
                 marginLeft: 450
                 
             }}
@@ -91,12 +92,26 @@ handleClick = () => {
                   
                 <Card>
                     <CardContent>
+            <Grid item>
+            <Typography variant="h3" gutterBottom
+            style = {{
+                color : "Red",
+                justifyContent: "center",
+                textAlign : "center"
+            }}>
+                 Login
+                  </Typography>
 
-            
+
+            </Grid>
              <Grid item>
                  <TextField
                  label = "Email"
                  fullWidth
+                 id="outlined-basic"
+                 variant="outlined"
+                 style = {{
+                    marginTop :20}}
                  onChange = {this.handleEmail}/>
              </Grid>
              <Grid item>
@@ -104,7 +119,9 @@ handleClick = () => {
           required
           id="filled-required"
           label="Password"
-          variant="filled"
+          variant="outlined"
+          style = {{
+            marginTop :10}}
           onChange = {this.handlePassword}
           fullWidth
         />
