@@ -1,48 +1,38 @@
 import React from "react"
-import {Button, Grid} from "@material-ui/core"
+import { Grid, Paper, IconButton, Button, } from '@material-ui/core';
 
-export default class ColorChange extends React.Component{
-    constructor(props){
+export default class ColorChange extends React.Component {
+    constructor(props) {
         super(props);
-        this.state={
-            quote : "",
-            author : ""
+
+        this.state = {
+            arr: [],
+            color: 'black'
         }
-        
-   
     }
 
-    
+
     handleClick = () => {
-        fetch('http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json')
+        fetch('http://www.colr.org/json/color/random')
             .then((res) => (res.json()))
             .then((data) => {
-            
+                console.log(data);
+                console.log(data.new_color);
                 this.setState({
-                    quote: data.quoteText,
-                    author : data.quoteAuthor
-
+                    color: '#' + data.new_color
                 })
             })
         
     }
 
-
-    render(){
-        return(
-            <div>
-
-                <Grid>
-                     {this.state.quote}
-                     {this.state.author}
-                     <Button onClick = {this.handleClick}> </Button>
-                </Grid>
-
-            </div>
-
-        )
+    render() {
+        return (
             
-        
+                  <div>
+                      <Grid style = {{backgroundColor : this.state.color}}>
+
+                      </Grid>
+                  </div>
+        )
     }
-    
-}
+ }

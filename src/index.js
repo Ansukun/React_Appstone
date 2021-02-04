@@ -8,10 +8,12 @@ import Input2 from "./comp/class4/input2"
 import Todolist from "./comp/class4/toDolist.js"
 import ColorChange from "./comp/class5/colorChange"
 import Quote from "./comp/class5/quote"
+import Login from "./comp/class6/login"
+import Login2 from "./comp/class6/login2"
 
 ReactDOM.render(
   <React.StrictMode>
-      <Quote/>
+      <Login/>
     
   </React.StrictMode>,
   document.getElementById('root')
