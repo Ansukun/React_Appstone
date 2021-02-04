@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "./login.css";
+import Alert from '@material-ui/lab/Alert';
 import {IconButton,CloseIcon,LockIcon,LockOpenIcon} from "@material-ui/icons" 
 import { Grid,Button,Avatar,Dialog,DialogContent,TextField,Card, CardContent ,Snackbar, SnackbarContent,Typography,AssignmentIcon} from "@material-ui/core";
 export default class Login extends Component {
@@ -50,9 +51,8 @@ handleClick = () => {
                   snackbarmessage: "Logged in Succesfully",
                         login: true,
                         snackbaropen: true,
-                        email: '',
-                        password: ''
-
+                        email : "",
+                        password : ""
                
               })
           }
@@ -62,9 +62,8 @@ handleClick = () => {
                   snackbarmessage: "Login Failed",
                         login: true,
                         snackbaropen: true,
-                        email: '',
-                        password: ''
-
+                        email : "",
+                        password : ""
               })
           }
       })
@@ -80,14 +79,6 @@ handleClick = () => {
             password : e.target.value
         })
        }      
-
-       handleclc = () =>{
-           this.setState({
-
-            email : "",
-            password : "",
-           })
-       }
        
     
    
@@ -127,8 +118,7 @@ handleClick = () => {
                  value = {this.state.email}
                  style = {{
                     marginTop :20}}
-                 onChange = {this.handleEmail}
-                    />
+                 onChange = {this.handleEmail}/>
              </Grid>
              <Grid item>
              <TextField
@@ -140,14 +130,12 @@ handleClick = () => {
           style = {{
             marginTop :10}}
           onChange = {this.handlePassword}
-          
           fullWidth
         />
              </Grid>
              <Grid item>
                  <Button
                  onClick = {this.handleLogin}
-                
                  fullWidth
                  disabled={this.state.password.length === 0 || this.state.email.length === 0 ? true : false}
                  variant = "contained"
@@ -160,26 +148,25 @@ handleClick = () => {
              </Grid>
              </CardContent>
              </Card>
-            
-             <Snackbar
-                    
-
-                        anchorOrigin={{
+                    <Snackbar
+                 open={this.state.snackbaropen}
+                autoHideDuration={6000}
+                onClose={this.handleClose}
+                anchorOrigin={{
                             vertical: 'top',
                             horizontal: 'center',
                         }}
-                        open={this.state.snackbaropen}
-                        autoHideDuration={3000}
-                        onClose={this.snackbarClose}
-                        message={<span style={{textAlign:'center',justifyContent:'center'}}> 
-                        {this.state.snackbarmessage}</span>}
-                        action={
-                            <React.Fragment>
-                                <Button size="small" aria-label="close" color="default" onClick={this.snackbarClose}>
-                                </Button>
-                            </React.Fragment>
-                        }
-                    />
+              >
+                {this.state.snackbarmessage === "Login Failed" ? (
+                  <Alert onClose={this.handleClose} severity="error">
+                    {this.state.snackbarmessage}
+                  </Alert>
+                ) : (
+                  <Alert onClose={this.handleClose} severity="success">
+                   {this.state.snackbarmessage}
+                  </Alert>
+                )}
+              </Snackbar>
     
 
                    
