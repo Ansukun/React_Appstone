@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./login.css";
 import Alert from '@material-ui/lab/Alert';
+import PasswordField from 'material-ui-password-field'
 import {IconButton,CloseIcon,LockIcon,LockOpenIcon} from "@material-ui/icons" 
 import { Grid,Button,Avatar,Dialog,DialogContent,TextField,Card, CardContent ,Snackbar, SnackbarContent,Typography,AssignmentIcon} from "@material-ui/core";
 export default class Login extends Component {
@@ -114,24 +115,25 @@ handleClick = () => {
                  label = "Email"
                  fullWidth
                  id="outlined-basic"
-                 variant="outlined"
+                //  variant="outlined"
                  value = {this.state.email}
                  style = {{
                     marginTop :20}}
                  onChange = {this.handleEmail}/>
              </Grid>
              <Grid item>
-             <TextField
-          required
-          id="filled-required"
-          label="Password"
-          variant="outlined"
-          value = {this.state.password}
-          style = {{
-            marginTop :10}}
-          onChange = {this.handlePassword}
-          fullWidth
-        />
+             <PasswordField
+                hintText="At least 8 characters"
+                floatingLabelText="Enter your password"
+                errorText="Your password is too short"
+                 variant="outlined"
+                value = {this.state.password}
+                
+             style = {{
+            marginTop :20}}
+            onChange = {this.handlePassword}
+            fullWidth
+               />
              </Grid>
              <Grid item>
                  <Button
@@ -141,7 +143,7 @@ handleClick = () => {
                  variant = "contained"
                  color = "secondary"
                  style = {{
-                     marginTop :10}}
+                     marginTop :30}}
                      >
                          LOGIN
                  </Button>
