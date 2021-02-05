@@ -10,10 +10,12 @@ import ColorChange from "./comp/class5/colorChange"
 import Quote from "./comp/class5/quote"
 import Login from "./comp/class6/login"
 import Login2 from "./comp/class6/login2"
+import  Delay from "./comp/class6/login2"
 
 ReactDOM.render(
   <React.StrictMode>
       <Login/>
+      <Delay/>
     
   </React.StrictMode>,
   document.getElementById('root')
