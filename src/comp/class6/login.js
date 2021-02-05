@@ -90,11 +90,13 @@ handleClick = () => {
             style = {{
                 justifyContent : "center",
                 marginTop : 100,
-                marginLeft: 450
+                marginLeft: 250
                 
             }}
               
-              xs = {4}>
+              xs = {4}
+              sm ={12}
+              md = {6}>
                   
                 <Card>
                     <CardContent>
